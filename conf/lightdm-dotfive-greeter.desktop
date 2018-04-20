@@ -1,0 +1,9 @@
+# ======
+# Desktop greeter file for Dotfile Lightdm greeter
+# ======
+
+[Desktop Entry]
+Name=DotFive Greeter
+Comment=DotFive LightDM Greeter
+Exec=lightdm-dotfive-greeter
+Type=Application
