@@ -7,7 +7,7 @@ lightdm_dotfive_greeter_SOURCES = \
 	dotfive-greeter.vala
 
 lightdm_dotfive_greeter_CFLAGS = \
-	$(GREETER_CFLAGS) \
+	$(DOTFIVE_GREETER_CFLAGS) \
 	-w \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
 	-DLOCALEDIR=\""$(localedir)"\" \
@@ -29,7 +29,7 @@ lightdm_dotfive_greeter_VALAFLAGS = \
 	--target-glib 2.32
 
 lightdm_dotfive_greeter_LDADD = \
-	$(GREETER_LIBS) \
+	$(DOTFIVE_GREETER_LIBS) \
 	-lm
 
 DISTCLEANFILES = \
