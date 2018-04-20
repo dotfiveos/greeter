@@ -1,9 +1,12 @@
-greeter_PROGRAMS = lightdm-dotfive-greeter
+
+sbin_PROGRAMS = lightdm-dotfive-greeter
+# greeter_PROGRAMS = lightdm-dotfive-greeter
+# greeterdir= /usr/bin/
 
 dotfive_greeter_SOURCES = \
 	dotfive-greeter.vala
 
-dotfive_greeter_SOURCES = \
+dotfive_greeter_CFLAGS = \
 	$(GREETER_CFLAGS) \
 	-w \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
