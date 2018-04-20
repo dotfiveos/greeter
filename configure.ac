@@ -11,7 +11,7 @@ dnl ###########################################################################
 dnl Dependencies
 dnl ###########################################################################
 
-PKG_CHECK_MODULES(GREETER, [
+PKG_CHECK_MODULES(DOTFIVE_GREETER, [
     liblightdm-gobject-1
     gtk+-3.0
     webkitgtk-3.0
@@ -58,8 +58,8 @@ dnl ###########################################################################
 AC_OUTPUT([
     Makefile
     data/Makefile
-    po/Makefile
     src/Makefile
+    po/Makefile.in
 ])
 
 dnl ###########################################################################
