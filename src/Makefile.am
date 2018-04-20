@@ -3,10 +3,10 @@ sbin_PROGRAMS = lightdm-dotfive-greeter
 # greeter_PROGRAMS = lightdm-dotfive-greeter
 # greeterdir= /usr/bin/
 
-dotfive_greeter_SOURCES = \
+lightdm_dotfive_greeter_SOURCES = \
 	dotfive-greeter.vala
 
-dotfive_greeter_CFLAGS = \
+lightdm_dotfive_greeter_CFLAGS = \
 	$(GREETER_CFLAGS) \
 	-w \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
@@ -14,7 +14,7 @@ dotfive_greeter_CFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
 	-DPKGDATADIR=\""$(pkgdatadir)"\"
 
-dotfive_greeter_VALAFLAGS = \
+lightdm_dotfive_greeter_VALAFLAGS = \
 	$(AM_VALAFLAGS) \
 	--debug \
 	--pkg posix \
@@ -28,7 +28,7 @@ dotfive_greeter_VALAFLAGS = \
 	--pkg pixman-1 \
 	--target-glib 2.32
 
-dotfive_greeter_LDADD = \
+lightdm_dotfive_greeter_LDADD = \
 	$(GREETER_LIBS) \
 	-lm
 
