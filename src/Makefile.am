@@ -4,6 +4,7 @@ sbin_PROGRAMS = lightdm-dotfive-greeter
 # greeterdir= /usr/bin/
 
 lightdm_dotfive_greeter_SOURCES = \
+	config.vala \
 	dotfive-greeter.vala
 
 lightdm_dotfive_greeter_CFLAGS = \
@@ -31,6 +32,8 @@ lightdm_dotfive_greeter_VALAFLAGS = \
 lightdm_dotfive_greeter_LDADD = \
 	$(DOTFIVE_GREETER_LIBS) \
 	-lm
+
+lightdm_dotfive_greeter_vala.stamp: $(top_srcdir)/config.h
 
 DISTCLEANFILES = \
 	Makefile.in

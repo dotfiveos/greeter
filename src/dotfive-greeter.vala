@@ -45,4 +45,23 @@ public class DotfiveGreeter {
             Posix.exit (Posix.EXIT_FAILURE);
         }
     }
+
+
+    public static int main (string[] args) {
+        // prevents meory from being paged, used to prevent passwords from being saved
+        Posix.mlockall (Posix.MCL_CURRENT | Posix.MCL_FUTURE);
+
+        // Initialize localization
+        Intl.setlocale (LocaleCategory.ALL, "");
+        Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.LOCALEDIR);
+        Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
+        Intl.textdomain (Config.GETTEXT_PACKAGE);
+
+        // Allows the DE to set cursor
+        GLib.Environment.set_variable ("GDK_CORE_DEVICE_EVENTS", "1", true);
+
+        Gtk.init (ref args);
+
+        debug ("Starting lightdm-dotfive-greeter %s UID=%d LANG=%s", Config.VERSION, (int) Posix.getuid (), Environment.get_variable ("LANG"));
+    }
 }
