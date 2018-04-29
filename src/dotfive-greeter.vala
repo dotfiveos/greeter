@@ -26,6 +26,11 @@ public class DotfiveGreeter {
         instance = this;
         testmode = _testmode;
 
+        debug("Loading config file");
+        config = new KeyFile ();
+        config.set_list_separator (",");
+        config.load_from_file("/etc/lightdm/lightdm-dotfive-greeter.conf", KeyFileFlags.NONE);
+
         debug ("Creating background surface");
         background_surface = create_root_surface (Gdk.Screen.get_default ());
 
@@ -183,16 +188,11 @@ public class DotfiveGreeter {
         if (value != "")
             settings.set ("gtk-xft-rgba", value, null);
 */
-        debug("Loading config file");
-        config = new KeyFile ();
-        config.set_list_separator (",");
-        config.load_from_file("/etc/lightdm/lightdm-dotfive-greeter.conf", KeyFileFlags.NONE);
-
         debug("Creating greeter instance");
         var greeter = new DotfiveGreeter (true); // do_test_mode);
 
         debug ("Showing greeter");
-        greeter.show ();
+        // greeter.show ();
 
         // Handler so we quit cleanly
         GLib.Unix.signal_add(GLib.ProcessSignal.TERM, () => {
