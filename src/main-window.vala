@@ -140,7 +140,7 @@ public class MainWindow : Gtk.Window {
 
         debug ("MainWindow is %dx%d pixels", window_size_x, window_size_y);
 
-        background.set_monitors (monitors);
+        // background.set_monitors (monitors);
 
         if(do_resize) {
             setup_window ();
