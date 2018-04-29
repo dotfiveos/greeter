@@ -1,4 +1,4 @@
-using WebKit;
+// using WebKit;
 
 public class DotfiveGreeter {
     
@@ -159,7 +159,7 @@ public class DotfiveGreeter {
         if (value != "")
             settings.set ("gtk-xft-rgba", value, null);
 
-        debug('Creating greeter instance');
+        debug("Creating greeter instance");
         var greeter = new DotfiveGreeter (do_test_mode);
 
         debug ("Showing greeter");
