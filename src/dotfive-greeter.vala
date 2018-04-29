@@ -1,7 +1,6 @@
 using GLib;
 using Gtk;
 using Cairo;
-using WebKit;
 
 public class DotfiveGreeter {
     
@@ -67,12 +66,7 @@ public class DotfiveGreeter {
             return false;
         });
 
-        Bus.own_name (BusType.SESSION, "x.dm.DotfiveGreeter", BusNameOwnerFlags.NONE);
-
-        var view = new WebView();
-        view.load_uri("https://google.com/");
-        main_window.add(view);        
-
+        Bus.own_name (BusType.SESSION, "x.dm.DotfiveGreeter", BusNameOwnerFlags.NONE);       
     }
 
     public void show () {

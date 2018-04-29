@@ -1,3 +1,5 @@
+using WebKit;
+
 public class MainWindow : Gtk.Window {
 
   construct {
@@ -15,7 +17,7 @@ public class MainWindow : Gtk.Window {
 
     this.get_style_context().add_class("lightdm");
 
-    Gtk.ColorButton button = new Gtk.ColorButton ();
+    /* Gtk.ColorButton button = new Gtk.ColorButton ();
 
 		// Use alpha channel
 		button.set_use_alpha (true);
@@ -35,7 +37,11 @@ public class MainWindow : Gtk.Window {
 			uint16 alpha = button.get_alpha ();
 			stdout.printf ("%s, %hu\n", button.rgba.to_string (), alpha);
 		});
-    this.add (button);
+    this.add (button);*/
+
+    var view = new WebView();
+    view.load_uri("https://google.com/");
+    this.add(view); 
     
     this.show_all();
   }
