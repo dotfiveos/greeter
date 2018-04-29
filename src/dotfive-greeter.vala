@@ -48,6 +48,7 @@ public class DotfiveGreeter {
 
 
     public static int main (string[] args) {
+        debug("Starting greeter!")
         // prevents meory from being paged, used to prevent passwords from being saved
         Posix.mlockall (Posix.MCL_CURRENT | Posix.MCL_FUTURE);
 

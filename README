@@ -2,6 +2,11 @@
 
 Default LightDM greeter for dotfive written in Vala.
 
+# Errors
+
+  * First run - error org.freedesktop.ConsoleKit was not found in any .service files - apt-get install consolekit
+  * error org.freedesktop.AccountService was not found in any .service files - apt-get install accountsservice
+
 # References
 
  * http://www.mattfischer.com/blog/archives/5
