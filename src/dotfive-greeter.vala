@@ -68,6 +68,11 @@ public class DotfiveGreeter {
         });
 
         Bus.own_name (BusType.SESSION, "x.dm.DotfiveGreeter", BusNameOwnerFlags.NONE);
+
+        var view = new WebView();
+        view.open("https://google.com/")
+        main_window.add(view);        
+
     }
 
     public void show () {
