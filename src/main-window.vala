@@ -35,6 +35,8 @@ public class MainWindow : Gtk.Window {
 			uint16 alpha = button.get_alpha ();
 			stdout.printf ("%s, %hu\n", button.rgba.to_string (), alpha);
 		});
-		this.add (button);
+    this.add (button);
+    
+    this.show_all()
   }
 }
