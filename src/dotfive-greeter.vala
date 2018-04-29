@@ -72,7 +72,7 @@ public class DotfiveGreeter {
     public void show () {
 
     }
-/*
+
     private static Cairo.XlibSurface? create_root_surface (Gdk.Screen screen) {
         var visual = screen.get_system_visual ();
 
@@ -93,7 +93,7 @@ public class DotfiveGreeter {
 
         return surface;
     }
-*/
+    
     private static void log_cb (string? log_domain, LogLevelFlags log_level, string message) {
         string prefix;
         switch (log_level & LogLevelFlags.LEVEL_MASK) {
@@ -150,7 +150,7 @@ public class DotfiveGreeter {
         Gdk.get_default_root_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.LEFT_PTR));
 
         // Setting gtk settings (required?)
-        debug ("Setting GTK+ settings");
+        /*debug ("Setting GTK+ settings");
         var settings = Gtk.Settings.get_default ();
         var value = UGSettings.get_string (UGSettings.KEY_THEME_NAME);
         if (value != "")
@@ -172,7 +172,7 @@ public class DotfiveGreeter {
         value = UGSettings.get_string (UGSettings.KEY_XFT_RGBA);
         if (value != "")
             settings.set ("gtk-xft-rgba", value, null);
-
+*/
         debug("Creating greeter instance");
         var greeter = new DotfiveGreeter (true); // do_test_mode);
 
@@ -187,8 +187,6 @@ public class DotfiveGreeter {
         });
 
         Gtk.main ();
-
-
 
         return Posix.EXIT_SUCCESS;
     }

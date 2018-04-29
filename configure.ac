@@ -16,13 +16,15 @@ dnl Dependencies
 dnl ###########################################################################
 
 PKG_CHECK_MODULES(DOTFIVE_GREETER, [
-    liblightdm-gobject-1
     gtk+-3.0
     gdk-x11-3.0
-    webkitgtk-3.0
-    dbus-glib-1
+    liblightdm-gobject-1 >= 1.12.0
+    freetype2
+    cairo-ft
+    libcanberra
     pixman-1
     x11
+    xext
 ])
 
 dnl ###########################################################################
