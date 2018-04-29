@@ -28,7 +28,7 @@ public class DotfiveGreeter {
 
         debug("Loading config file");
         config = new KeyFile ();
-        config.set_list_separator (",");
+        config.set_list_separator (',');
         config.load_from_file("/etc/lightdm/lightdm-dotfive-greeter.conf", KeyFileFlags.NONE);
 
         debug ("Creating background surface");
