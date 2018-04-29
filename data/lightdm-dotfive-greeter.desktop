@@ -5,5 +5,5 @@
 [Desktop Entry]
 Name=DotFive Greeter
 Comment=DotFive LightDM Greeter
-Exec=G_MESSAGES_DEBUG=all lightdm-dotfive-greeter 2>&1 | tee -a /var/log/lightdm/dotfive-greeter.log
+Exec=G_MESSAGES_DEBUG=all lightdm-dotfive-greeter 2>&1 /var/log/lightdm/dotfive-greeter.log
 Type=Application
