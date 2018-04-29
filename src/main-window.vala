@@ -37,6 +37,6 @@ public class MainWindow : Gtk.Window {
 		});
     this.add (button);
     
-    this.show_all()
+    this.show_all();
   }
 }
