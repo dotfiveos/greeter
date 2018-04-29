@@ -14,5 +14,27 @@ public class MainWindow : Gtk.Window {
     has_resize_grip = false;
 
     this.get_style_context().add_class("lightdm");
+
+    Gtk.ColorButton button = new Gtk.ColorButton ();
+
+		// Use alpha channel
+		button.set_use_alpha (true);
+
+		// Set value to blue:
+		Gdk.RGBA rgba = Gdk.RGBA ();
+		bool tmp = rgba.parse ("#0066FF");
+		assert (tmp == true);
+
+		button.rgba = rgba;
+
+		// Sets the title for the color selection dialog:
+		button.set_title ("Select your favourite color");
+
+		// Catch color-changes:
+		button.color_set.connect (() => {
+			uint16 alpha = button.get_alpha ();
+			stdout.printf ("%s, %hu\n", button.rgba.to_string (), alpha);
+		});
+		this.add (button);
   }
 }
