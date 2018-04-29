@@ -23,7 +23,6 @@ PKG_CHECK_MODULES(DOTFIVE_GREETER, [
     dbus-glib-1
     pixman-1
     x11
-    webkit2gtk-4.0
 ])
 
 dnl ###########################################################################
