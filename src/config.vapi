@@ -10,4 +10,5 @@ namespace Config
   public const string LOCALEDIR;
   public const string VERSION;
   public const string PKGDATADIR;
+  public const string THEME_DIR;
 }
