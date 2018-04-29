@@ -5,6 +5,7 @@ sbin_PROGRAMS = lightdm-dotfive-greeter
 
 lightdm_dotfive_greeter_SOURCES = \
 	config.vapi \
+	main-window.vala \
 	dotfive-greeter.vala
 
 lightdm_dotfive_greeter_CFLAGS = \

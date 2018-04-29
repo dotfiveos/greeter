@@ -1,4 +1,6 @@
-// using WebKit;
+using GLib;
+using Gtk;
+using WebKit;
 
 public class DotfiveGreeter {
     
@@ -12,6 +14,7 @@ public class DotfiveGreeter {
     public signal void starting_session ();
 
     private Cairo.XlibSurface background_surface;
+    private MainWindow main_window;
 
     private LightDM.Greeter greeter;
 
@@ -53,6 +56,17 @@ public class DotfiveGreeter {
         if (!connected && !testmode) {
             Posix.exit (Posix.EXIT_FAILURE);
         }
+
+        // var view = new WebView();
+
+        main_window = new MainWindow ();
+        // main_window.destroy.connect(() => { kill_fake_wm (); });
+        main_window.delete_event.connect(() => {
+            Gtk.main_quit();
+            return false;
+        });
+
+        Bus.own_name (BusType.SESSION, "x.dm.DotfiveGreeter", BusNameOwnerFlags.NONE);
     }
 
     public void show () {
