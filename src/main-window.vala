@@ -47,33 +47,9 @@ public class MainWindow : Gtk.Window {
 
         this.get_style_context().add_class("lightdm");
 
-        /* Gtk.ColorButton button = new Gtk.ColorButton ();
-
-            // Use alpha channel
-            button.set_use_alpha (true);
-
-            // Set value to blue:
-            Gdk.RGBA rgba = Gdk.RGBA ();
-            bool tmp = rgba.parse ("#0066FF");
-            assert (tmp == true);
-
-            button.rgba = rgba;
-
-            // Sets the title for the color selection dialog:
-            button.set_title ("Select your favourite color");
-
-            // Catch color-changes:
-            button.color_set.connect (() => {
-                uint16 alpha = button.get_alpha ();
-                stdout.printf ("%s, %hu\n", button.rgba.to_string (), alpha);
-            });
-        this.add (button);*/
-
         web_view = new WebView();
         web_view.load_uri("https://google.com/");
         this.add(web_view); 
-        
-        this.show_all();
 
         window_size_x = 0;
         window_size_y = 0;
@@ -100,6 +76,8 @@ public class MainWindow : Gtk.Window {
         var screen = get_screen ();
         screen.monitors_changed.connect (monitors_changed_cb);
         monitors_changed_cb (screen);
+
+        this.show_all();
     }
 
     public void setup_window () {
