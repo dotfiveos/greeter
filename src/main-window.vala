@@ -51,6 +51,8 @@ public class MainWindow : Gtk.Window {
         web_view.load_uri("https://google.com/");
         this.add(web_view); 
 
+        this.show_all();
+
         window_size_x = 0;
         window_size_y = 0;
         primary_monitor = null;
@@ -76,8 +78,7 @@ public class MainWindow : Gtk.Window {
         var screen = get_screen ();
         screen.monitors_changed.connect (monitors_changed_cb);
         monitors_changed_cb (screen);
-
-        this.show_all();
+        setup_window();
     }
 
     public void setup_window () {
