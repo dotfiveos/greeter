@@ -5,5 +5,5 @@
 [Desktop Entry]
 Name=DotFive Greeter
 Comment=DotFive LightDM Greeter
-Exec=lightdm-dotfive-greeter
+Exec=G_MESSAGES_DEBUG=all lightdm-dotfive-greeter
 Type=Application
