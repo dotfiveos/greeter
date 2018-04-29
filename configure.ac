@@ -67,12 +67,13 @@ dnl ###########################################################################
 dnl Files to generate
 dnl ###########################################################################
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
     Makefile
     data/Makefile
-    src/Makefile
     po/Makefile.in
+    src/Makefile
 ])
+AC_OUTPUT
 
 dnl ###########################################################################
 dnl Summary

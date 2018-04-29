@@ -4,7 +4,7 @@ sbin_PROGRAMS = lightdm-dotfive-greeter
 # greeterdir= /usr/bin/
 
 lightdm_dotfive_greeter_SOURCES = \
-	config.vala \
+	config.vapi \
 	dotfive-greeter.vala
 
 lightdm_dotfive_greeter_CFLAGS = \
