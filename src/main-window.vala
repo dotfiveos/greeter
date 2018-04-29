@@ -196,14 +196,14 @@ public class MainWindow : Gtk.Window {
 
     private void move_to_monitor (Monitor monitor) {
         active_monitor = monitor;
-        login_box.set_size_request (monitor.width, monitor.height);
-        background.set_active_monitor (monitor);
-        background.move (login_box, monitor.x, monitor.y);
+        //login_box.set_size_request (monitor.width, monitor.height);
+        //background.set_active_monitor (monitor);
+        //background.move (login_box, monitor.x, monitor.y);
 
-        if (shutdown_dialog != null) {
-            shutdown_dialog.set_active_monitor (monitor);
-            background.move (shutdown_dialog, monitor.x, monitor.y);
-        }
+        //if (shutdown_dialog != null) {
+        //    shutdown_dialog.set_active_monitor (monitor);
+            //background.move (shutdown_dialog, monitor.x, monitor.y);
+        //}
     }
 
 }
