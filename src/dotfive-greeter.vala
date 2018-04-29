@@ -1,5 +1,6 @@
 using GLib;
 using Gtk;
+using Cairo;
 using WebKit;
 
 public class DotfiveGreeter {
