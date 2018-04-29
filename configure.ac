@@ -99,6 +99,8 @@ AC_CONFIG_FILES([
     data/Makefile
     po/Makefile.in
     src/Makefile
+    themes/Makefile
+    themes/dotfive/Makefile
 ])
 AC_OUTPUT
 
