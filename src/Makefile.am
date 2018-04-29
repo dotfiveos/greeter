@@ -28,6 +28,7 @@ lightdm_dotfive_greeter_VALAFLAGS = \
 	--pkg libcanberra \
 	--pkg gio-2.0 \
 	--pkg pixman-1 \
+	--pkg webkit2gtk-4.0 \
 	--target-glib 2.32
 
 lightdm_dotfive_greeter_LDADD = \
