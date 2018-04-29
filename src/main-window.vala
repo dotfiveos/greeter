@@ -30,6 +30,8 @@ public class MainWindow : Gtk.Window {
     private int window_size_y;
     private bool do_resize;
 
+    private WebView web_view;
+
     construct {
         events |= Gdk.EventMask.POINTER_MOTION_MASK;
 
@@ -67,9 +69,9 @@ public class MainWindow : Gtk.Window {
             });
         this.add (button);*/
 
-        var view = new WebView();
-        view.load_uri("https://google.com/");
-        this.add(view); 
+        web_view = new WebView();
+        web_view.load_uri("https://google.com/");
+        this.add(web_view); 
         
         this.show_all();
 
@@ -199,6 +201,8 @@ public class MainWindow : Gtk.Window {
         //login_box.set_size_request (monitor.width, monitor.height);
         //background.set_active_monitor (monitor);
         //background.move (login_box, monitor.x, monitor.y);
+
+        web_view.set_size_request(monitor.width, monitor.height);
 
         //if (shutdown_dialog != null) {
         //    shutdown_dialog.set_active_monitor (monitor);
