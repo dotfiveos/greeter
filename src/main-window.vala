@@ -61,6 +61,7 @@ public class MainWindow : Gtk.Window {
         string theme_name = DotfiveGreeter.instance.config.get_string("greeter", "theme");
         debug("Using theme %s", theme_name);
         string theme_url = "file://" + Config.THEME_DIR + "/" + theme_name + "/index.html";
+        debug("Theme URL %s", theme_url);
 
         // web_view.load_uri("https://google.com/");
         web_view.load_uri(theme_url);
