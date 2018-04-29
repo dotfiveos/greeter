@@ -78,7 +78,6 @@ public class DotfiveGreeter {
     }
 
     public static int main (string[] args) {
-        debug("Starting greeter!");
 
         // prevents meory from being paged, used to prevent passwords from being saved
         Posix.mlockall (Posix.MCL_CURRENT | Posix.MCL_FUTURE);
@@ -89,11 +88,13 @@ public class DotfiveGreeter {
         Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (Config.GETTEXT_PACKAGE);
 
-        // Allows the DE to set cursor
-        GLib.Environment.set_variable ("GDK_CORE_DEVICE_EVENTS", "1", true);
-
         log_timer = new Timer ();
         Log.set_default_handler (log_cb);
+        
+        debug("Starting greeter!");
+        
+        // Allows the DE to set cursor
+        GLib.Environment.set_variable ("GDK_CORE_DEVICE_EVENTS", "1", true);
 
         Gtk.init (ref args);
 
