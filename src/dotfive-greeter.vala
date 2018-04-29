@@ -63,5 +63,7 @@ public class DotfiveGreeter {
         Gtk.init (ref args);
 
         debug ("Starting lightdm-dotfive-greeter %s UID=%d LANG=%s", Config.VERSION, (int) Posix.getuid (), Environment.get_variable ("LANG"));
+
+        return Posix.EXIT_SUCCESS;
     }
 }
