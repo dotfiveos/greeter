@@ -69,10 +69,10 @@ public class DotfiveGreeter {
         Bus.own_name (BusType.SESSION, "x.dm.DotfiveGreeter", BusNameOwnerFlags.NONE);       
     }
 
-    public void show () {
-
-    }
-
+    /**
+     * Original Function Copyright (C) 2011 Canonical Ltd 
+     * Modified Function Copyright (C) 2018 Keith Mitchell 
+    */
     private static Cairo.XlibSurface? create_root_surface (Gdk.Screen screen) {
         var visual = screen.get_system_visual ();
 
@@ -94,6 +94,10 @@ public class DotfiveGreeter {
         return surface;
     }
     
+    /**
+     * Original Function Copyright (C) 2011 Canonical Ltd 
+     * Modified Function Copyright (C) 2018 Keith Mitchell 
+    */
     private static void log_cb (string? log_domain, LogLevelFlags log_level, string message) {
         string prefix;
         switch (log_level & LogLevelFlags.LEVEL_MASK) {

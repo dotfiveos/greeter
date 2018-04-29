@@ -1,3 +1,8 @@
+/**
+ * Copyright (C) 2011 Canonical Ltd 
+ * Copyright (C) 2018 Keith Mitchell 
+*/
+
 [CCode (cprefix = "", lower_case_cprefix = "", cheader_filename = "config.h")]
 namespace Config
 {

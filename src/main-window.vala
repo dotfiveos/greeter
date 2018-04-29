@@ -78,15 +78,23 @@ public class MainWindow : Gtk.Window {
         var screen = get_screen ();
         screen.monitors_changed.connect (monitors_changed_cb);
         monitors_changed_cb (screen);
-        setup_window();
+        setup_window(); // required otherwise it waits for another change before resizing
     }
 
+    /**
+     * Original Function Copyright (C) 2011 Canonical Ltd 
+     * Modified Function Copyright (C) 2018 Keith Mitchell 
+    */
     public void setup_window () {
         resize (window_size_x, window_size_y);
         move (0, 0);
         move_to_monitor (primary_monitor);
     }
 
+    /**
+     * Original Function Copyright (C) 2011 Canonical Ltd 
+     * Modified Function Copyright (C) 2018 Keith Mitchell 
+    */
     private void monitors_changed_cb (Gdk.Screen screen) {
         Gdk.Display display = screen.get_display();
         Gdk.Monitor primary = display.get_primary_monitor();
@@ -130,7 +138,10 @@ public class MainWindow : Gtk.Window {
         }
     }
 
-    /* Check if a monitor has a unique position */
+    /**
+     * Original Function Copyright (C) 2011 Canonical Ltd 
+     * Modified Function Copyright (C) 2018 Keith Mitchell 
+    */
     private bool monitor_is_unique_position (Gdk.Display display, int n) {
         Gdk.Rectangle g0;
         Gdk.Monitor mon0;
@@ -150,6 +161,10 @@ public class MainWindow : Gtk.Window {
         return true;
     }
 
+    /**
+     * Original Function Copyright (C) 2011 Canonical Ltd 
+     * Modified Function Copyright (C) 2018 Keith Mitchell 
+    */
     public override bool motion_notify_event (Gdk.EventMotion event) {
         var x = (int) (event.x + 0.5);
         var y = (int) (event.y + 0.5);

@@ -1,3 +1,8 @@
+/**
+ * Copyright (C) 2011 Canonical Ltd 
+ * Copyright (C) 2018 Keith Mitchell 
+*/
+
 #if !VALA_0_22
 namespace Posix
 {
