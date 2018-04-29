@@ -20,6 +20,8 @@ public class DotfiveGreeter {
 
     private static Timer log_timer;
 
+    private KeyFile config;
+
     private DotfiveGreeter (bool _testmode) {
         instance = this;
         testmode = _testmode;
@@ -177,6 +179,11 @@ public class DotfiveGreeter {
         if (value != "")
             settings.set ("gtk-xft-rgba", value, null);
 */
+        debug("Loading config file");
+        config = new KeyFile ();
+        config.set_list_separator (',');
+        config.load_from_file('/etc/lightdm/lightdm-dotfive-greeter.conf');
+
         debug("Creating greeter instance");
         var greeter = new DotfiveGreeter (true); // do_test_mode);
 
