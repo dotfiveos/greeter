@@ -160,7 +160,7 @@ public class DotfiveGreeter {
             settings.set ("gtk-xft-rgba", value, null);
 
         debug("Creating greeter instance");
-        var greeter = new DotfiveGreeter (do_test_mode);
+        var greeter = new DotfiveGreeter (true); // do_test_mode);
 
         debug ("Showing greeter");
         greeter.show ();
