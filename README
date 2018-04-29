@@ -7,6 +7,10 @@ Default LightDM greeter for dotfive written in Vala.
   * First run - error org.freedesktop.ConsoleKit was not found in any .service files - apt-get install consolekit
   * error org.freedesktop.AccountService was not found in any .service files - apt-get install accountsservice
 
+# Notes
+
+ * `Log.set_default_handler (log_cb);` is required so it doesn't use the default logger which requires environment variables to be set and logs output strangely in a way lightdm doesn't capture it
+
 # References
 
  * http://www.mattfischer.com/blog/archives/5
