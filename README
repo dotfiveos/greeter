@@ -11,6 +11,11 @@ Default LightDM greeter for dotfive written in Vala.
 
  * `Log.set_default_handler (log_cb);` is required so it doesn't use the default logger which requires environment variables to be set and logs output strangely in a way lightdm doesn't capture it
 
+# TODO
+
+  * Check for existence of known bugs 
+    * https://stackoverflow.com/questions/43499146/gtk-3-window-freezes-when-webkit2-is-used-vala
+
 # References
 
  * http://www.mattfischer.com/blog/archives/5
