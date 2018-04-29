@@ -34,22 +34,22 @@ public class DotfiveGreeter {
         
         greeter.show_message.connect ((text, type) => {
             show_message (text, type);
-            debug("Show message called %s", text)
+            debug("Show message called %s", text);
         });
         
         greeter.show_prompt.connect ((text, type) => {
             show_prompt (text, type);
-            debug("Show prompt called %s", text)
+            debug("Show prompt called %s", text);
         });
         
         greeter.autologin_timer_expired.connect (() => {
             greeter.authenticate_autologin ();
-            debug("autologin time expired")
+            debug("autologin time expired");
         });
         
         greeter.authentication_complete.connect (() => {
             authentication_complete ();
-            debug("authentication complete")
+            debug("authentication complete");
         });
 
         var connected = false;
