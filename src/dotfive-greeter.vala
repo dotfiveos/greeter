@@ -72,7 +72,7 @@ public class DotfiveGreeter {
     public void show () {
 
     }
-
+/*
     private static Cairo.XlibSurface? create_root_surface (Gdk.Screen screen) {
         var visual = screen.get_system_visual ();
 
@@ -85,7 +85,7 @@ public class DotfiveGreeter {
                                      xscreen.height_of_screen (),
                                      visual.get_depth ());
 
-        /* Convert into a Cairo surface */
+        // Convert into a Cairo surface 
         var surface = new Cairo.XlibSurface (display,
                                              pixmap,
                                              (visual as Gdk.X11.Visual).get_xvisual (),
@@ -93,7 +93,7 @@ public class DotfiveGreeter {
 
         return surface;
     }
-
+*/
     private static void log_cb (string? log_domain, LogLevelFlags log_level, string message) {
         string prefix;
         switch (log_level & LogLevelFlags.LEVEL_MASK) {

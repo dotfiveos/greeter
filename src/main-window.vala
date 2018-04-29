@@ -13,6 +13,6 @@ public class MainWindow : Gtk.Window {
     get_accessible ().set_name (_("Login Screen"));
     has_resize_grip = false;
 
-    this.get_style_context().add_class("lightdm")
+    this.get_style_context().add_class("lightdm");
   }
 }
