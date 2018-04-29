@@ -58,9 +58,9 @@ public class MainWindow : Gtk.Window {
         web_settings.javascript_can_access_clipboard = true;
         web_settings.user_agent = "DotFive Login Greeter (https://github.com/dotfiveos/greeter)";
 
-        String theme_name = DotfiveGreeter.instance.config.get_string("greeter", "theme");
+        string theme_name = DotfiveGreeter.instance.config.get_string("greeter", "theme");
         debug("Using theme %s", theme_name);
-        String theme_url = "file://" + Config.THEME_DIR + "/" + theme_name + "/index.html";
+        string theme_url = "file://" + Config.THEME_DIR + "/" + theme_name + "/index.html";
 
         // web_view.load_uri("https://google.com/");
         web_view.load_uri(theme_url);
