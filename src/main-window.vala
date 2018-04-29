@@ -181,6 +181,7 @@ public class MainWindow : Gtk.Window {
         //background.move (login_box, monitor.x, monitor.y);
 
         web_view.set_size_request(monitor.width, monitor.height);
+        web_view.show_all();
 
         //if (shutdown_dialog != null) {
         //    shutdown_dialog.set_active_monitor (monitor);
