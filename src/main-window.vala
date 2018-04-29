@@ -1,5 +1,26 @@
 using WebKit;
 
+public class Monitor {
+    public int x;
+    public int y;
+    public int width;
+    public int height;
+
+    public Monitor (int x, int y, int width, int height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+
+    public bool equals (Monitor? other) {
+        if (other != null)
+            return (x == other.x && y == other.y && width == other.width && height == other.height);
+
+        return false;
+    }
+}
+
 public class MainWindow : Gtk.Window {
 
     private List<Monitor> monitors;
