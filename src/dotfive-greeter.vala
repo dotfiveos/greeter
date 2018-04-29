@@ -11,6 +11,8 @@ public class DotfiveGreeter {
 
     private LightDM.Greeter greeter;
 
+    private static Timer log_timer;
+
     private DotfiveGreeter (bool _testmode) {
         instance = this;
         testmode = _testmode;
@@ -46,10 +48,38 @@ public class DotfiveGreeter {
         }
     }
 
+    private static void log_cb (string? log_domain, LogLevelFlags log_level, string message) {
+        string prefix;
+        switch (log_level & LogLevelFlags.LEVEL_MASK) {
+            case LogLevelFlags.LEVEL_ERROR:
+                prefix = "ERROR:";
+                break;
+            case LogLevelFlags.LEVEL_CRITICAL:
+                prefix = "CRITICAL:";
+                break;
+            case LogLevelFlags.LEVEL_WARNING:
+                prefix = "WARNING:";
+                break;
+            case LogLevelFlags.LEVEL_MESSAGE:
+                prefix = "MESSAGE:";
+                break;
+            case LogLevelFlags.LEVEL_INFO:
+                prefix = "INFO:";
+                break;
+            case LogLevelFlags.LEVEL_DEBUG:
+                prefix = "DEBUG:";
+                break;
+            default:
+                prefix = "LOG:";
+                break;
+        }
+
+        stderr.printf ("[%+.2fs] %s %s\n", log_timer.elapsed (), prefix, message);
+    }
 
     public static int main (string[] args) {
         debug("Starting greeter!");
-        
+
         // prevents meory from being paged, used to prevent passwords from being saved
         Posix.mlockall (Posix.MCL_CURRENT | Posix.MCL_FUTURE);
 
@@ -61,6 +91,9 @@ public class DotfiveGreeter {
 
         // Allows the DE to set cursor
         GLib.Environment.set_variable ("GDK_CORE_DEVICE_EVENTS", "1", true);
+
+        log_timer = new Timer ();
+        Log.set_default_handler (log_cb);
 
         Gtk.init (ref args);
 
