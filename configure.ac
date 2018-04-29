@@ -1,6 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(dotfive-greeter, 1.0.0)
+AC_SUBST(THEME_DIR)
 AC_CONFIG_MACRO_DIR(m4)
 AM_INIT_AUTOMAKE([1.11 no-dist-gzip dist-xz foreign subdir-objects])
 AM_PROG_CC_C_O
@@ -31,6 +32,17 @@ PKG_CHECK_MODULES(DOTFIVE_GREETER, [
 dnl ###########################################################################
 dnl Configurable values
 dnl ###########################################################################
+THEME_DIR="/usr/share/lightdm-dotfive/themes/"
+AC_ARG_WITH(theme-dir,
+            AS_HELP_STRING(--with-theme-dir=<path>,
+                           Theme directory to use for webkit themes),
+    if test x$withval != x; then
+        THEME_DIR="$withval"
+    fi
+)
+AC_SUBST(THEME_DIR)
+AC_DEFINE_UNQUOTED(THEME_DIR, "$THEME_DIR", Theme Dir)
+
 CONFIG_DIR="/etc/lightdm/"
 AC_ARG_WITH(config-dir,
             AS_HELP_STRING(--with-config-dir=<path>,
@@ -105,5 +117,6 @@ echo " | (_ | |   / | _|  | _|    | |   | _|  |   /";
 echo "  \\___| |_|_\\ |___| |___|   |_|   |___| |_|_\\";
 echo "
     Configuration directory:  $CONFIG_DIR
-    Desktop directory:  $DESKTOP_DIR
+    Theme directory:          $THEME_DIR
+    Desktop directory:        $DESKTOP_DIR
 "

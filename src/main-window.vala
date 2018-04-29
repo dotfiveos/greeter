@@ -48,6 +48,19 @@ public class MainWindow : Gtk.Window {
         this.get_style_context().add_class("lightdm");
 
         web_view = new WebView();
+
+        var web_settings= new WebKit.Settings();
+
+        web_settings.allow_modal_dialogs = false;
+        web_settings.auto_load_images = true;
+        web_settings.default_font_family = "'sans-serif'";
+        web_settings.default_font_size = 16;
+        web_settings.javascript_can_access_clipboard = true;
+        web_settings.user_agent = "DotFive Login Greeter (https://github.com/dotfiveos/greeter)";
+
+        String theme_name = DotfiveGreeter.instance.config.get_string("greeter", "theme");
+        debug("Using theme %s", theme_name);
+
         web_view.load_uri("https://google.com/");
         this.add(web_view); 
 

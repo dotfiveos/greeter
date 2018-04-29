@@ -20,7 +20,7 @@ public class DotfiveGreeter {
 
     private static Timer log_timer;
 
-    private KeyFile config;
+    public KeyFile config;
 
     private DotfiveGreeter (bool _testmode) {
         instance = this;
@@ -34,18 +34,22 @@ public class DotfiveGreeter {
         
         greeter.show_message.connect ((text, type) => {
             show_message (text, type);
+            debug("Show message called %s", text)
         });
         
         greeter.show_prompt.connect ((text, type) => {
             show_prompt (text, type);
+            debug("Show prompt called %s", text)
         });
         
         greeter.autologin_timer_expired.connect (() => {
             greeter.authenticate_autologin ();
+            debug("autologin time expired")
         });
         
         greeter.authentication_complete.connect (() => {
             authentication_complete ();
+            debug("authentication complete")
         });
 
         var connected = false;
@@ -181,8 +185,8 @@ public class DotfiveGreeter {
 */
         debug("Loading config file");
         config = new KeyFile ();
-        config.set_list_separator (',');
-        config.load_from_file('/etc/lightdm/lightdm-dotfive-greeter.conf');
+        config.set_list_separator (",");
+        config.load_from_file("/etc/lightdm/lightdm-dotfive-greeter.conf", KeyFileFlags.NONE);
 
         debug("Creating greeter instance");
         var greeter = new DotfiveGreeter (true); // do_test_mode);
