@@ -47,7 +47,7 @@ public class MainWindow : Gtk.Window {
 
         this.get_style_context().add_class("lightdm");
 
-        UserStyleSheet global_styles = new WebKit.UserStyleSheet("", UserContentInjectedFrames.TOP_FRAME, UserStyleLevel.USER);
+        UserStyleSheet global_styles = new WebKit.UserStyleSheet("", UserContentInjectedFrames.TOP_FRAME, UserStyleLevel.USER, null, null);
 
         UserContentManager content_manager = new WebKit.UserContentManager();
         content_manager.add_style_sheet(global_styles);
