@@ -51,9 +51,10 @@ public class MainWindow : Gtk.Window {
 
 
         UserContentManager content_manager = new WebKit.UserContentManager();
-        content_manager.add_style_sheet()
+        content_manager.add_style_sheet();
 
-        web_view = new WebKit.WebView.with_user_content_manager(content_manager); // WebView();
+        web_view = new WebKit.WebView.with_user_content_manager(content_manager);
+        // WebView();
 
         var web_settings= new WebKit.Settings();
 
