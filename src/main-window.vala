@@ -49,9 +49,8 @@ public class MainWindow : Gtk.Window {
 
         UserStyleSheet global_styles = new WebKit.UserStyleSheet("", UserContentInjectedFrames.TOP_FRAME, UserStyleLevel.USER);
 
-
         UserContentManager content_manager = new WebKit.UserContentManager();
-        content_manager.add_style_sheet();
+        content_manager.add_style_sheet(global_styles);
 
         web_view = new WebKit.WebView.with_user_content_manager(content_manager);
         // WebView();
