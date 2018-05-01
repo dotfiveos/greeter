@@ -31,7 +31,7 @@ lightdm_dotfive_greeter_VALAFLAGS = \
 	--pkg gio-2.0 \
 	--pkg pixman-1 \
 	--pkg webkit2gtk-4.0 \
-	--pkg javascriptcoregtk-3.0 \
+	--pkg javascriptcore \
 	--vapidir=. \
 	--target-glib 2.32
 
