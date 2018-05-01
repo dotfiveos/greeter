@@ -55,7 +55,7 @@ public class MainWindow : Gtk.Window {
         web_view = new WebKit.WebView.with_user_content_manager(content_manager);
         // WebView();
 
-        var web_settings= new WebKit.Settings();
+        var web_settings = new WebKit.Settings();
 
         web_settings.allow_modal_dialogs = false;
         web_settings.auto_load_images = true;
