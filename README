@@ -23,3 +23,4 @@ Default LightDM greeter for dotfive written in Vala.
  * https://valadoc.org/gtk+-3.0/Gtk.Window.html
  * https://valadoc.org/webkit2gtk-4.0/WebKit.WebView.html
  * https://valadoc.org/webkit2gtk-4.0/index.htm
+ * https://github.com/davedoesdev/davedoesdev/blob/master/posts/wrapping-webkit-1.md
