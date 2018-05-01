@@ -109,29 +109,29 @@ public class MainWindow : Gtk.Window {
         setup_window(); // required otherwise it waits for another change before resizing
     }
 
-    public static JSCore.Value getData(JSCore.Context ctx,
-                                   JSCore.Object function,
-                                   JSCore.Object thisObject,
-                                   JSCore.ConstValue[] arguments,
-                                   out JSCore.Value exception) {
+    public static JS.Value getData(JS.Context ctx,
+                                   JS.Object function,
+                                   JS.Object thisObject,
+                                   JS.ConstValue[] arguments,
+                                   out JS.Value exception) {
         exception = null;
 
-        return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string("test string!"));
+        return new JS.Value.string(ctx, new JS.String.with_utf8_c_string("test string!"));
 
         /* lock (data) {
-            return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(data));
+            return new JS.Value.string(ctx, new JS.String.with_utf8_c_string(data));
         } */
     }
 
     // called by javascript
-    public static JSCore.Value exit(JSCore.Context ctx,
-                                JSCore.Object function,
-                                JSCore.Object thisObject,
-                                JSCore.ConstValue[] arguments,
-                                out JSCore.Value exception) {
+    public static JS.Value exit(JS.Context ctx,
+                                JS.Object function,
+                                JS.Object thisObject,
+                                JS.ConstValue[] arguments,
+                                out JS.Value exception) {
         exception = null;
 
-        JSCore.String js_string = arguments[0].to_string_copy(ctx, null);
+        JS.String js_string = arguments[0].to_string_copy(ctx, null);
 
         size_t max_size = js_string.get_maximum_utf8_c_string_size();
         char *c_string = new char[max_size];
@@ -141,31 +141,31 @@ public class MainWindow : Gtk.Window {
 
         Gtk.main_quit();
 
-        return new JSCore.Value.null(ctx);
+        return new JS.Value.null(ctx);
     }
 
     // passes data to javascript via having the javascript call a function
     public void addApp(WebFrame frame, void *context, void *window_object) {
         // expose app_getData function to javascript context
-        unowned JSCore.Context ctx = (JSCore.Context) context;
-        JSCore.Object global = ctx.get_global_object();
+        unowned JS.Context ctx = (JS.Context) context;
+        JS.Object global = ctx.get_global_object();
 
-        JSCore.String name = new JSCore.String.with_utf8_c_string("app_getData");
-        JSCore.Value ex;
+        JS.String name = new JS.String.with_utf8_c_string("app_getData");
+        JS.Value ex;
                         
         global.set_property(ctx,
                         name,
-                        new JSCore.Object.function_with_callback(ctx, name, getData),
-                        JSCore.PropertyAttribute.ReadOnly,
+                        new JS.Object.function_with_callback(ctx, name, getData),
+                        JS.PropertyAttribute.ReadOnly,
                         out ex);
 
         // receive app_exit call from javascript
-        name = new JSCore.String.with_utf8_c_string("app_exit");
+        name = new JS.String.with_utf8_c_string("app_exit");
         
         global.set_property(ctx,
                         name,
-                        new JSCore.Object.function_with_callback(ctx, name, exit),
-                        JSCore.PropertyAttribute.ReadOnly,
+                        new JS.Object.function_with_callback(ctx, name, exit),
+                        JS.PropertyAttribute.ReadOnly,
                         out ex);
     }
 
