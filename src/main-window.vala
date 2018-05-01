@@ -58,7 +58,7 @@ public class MainWindow : Gtk.Window {
         web_view.window_object_cleared.connect(addApp);
 
         // var web_settings = new WebKit.Settings();
-        Webkit.Settings web_settings = web_view.get_settings();
+        WebKit.Settings web_settings = web_view.get_settings();
 
         web_settings.enable_plugins = true;
         web_settings.enable_scripts = true;
