@@ -27,6 +27,7 @@ PKG_CHECK_MODULES(DOTFIVE_GREETER, [
     x11
     xext
     webkit2gtk-4.0
+    javascriptcoregtk-4.0
 ])
 
 dnl ###########################################################################
