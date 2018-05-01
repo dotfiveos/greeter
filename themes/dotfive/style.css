@@ -61,4 +61,50 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body .login-modal {
+  padding: 20px;
+  border-radius: 5px;
+  background: white;
+}
+
+body .login-modal h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+body .login-modal form {
+  width: 100%;  
+}
+
+body .login-modal form .input-group {
+  margin-bottom: 15px;
+}
+
+body .login-modal form .input-group label {
+  font-size: 14px;
+}
+
+body .login-modal form .input-group input {
+  width: 100%;
+  padding: 6px;
+  font-size: 16px;
+  border: none;
+  color: black;
+  background: transparent;
+  border-bottom: 2px solid lightgray;
+}
+
+body .login-modal form button {
+  border: none;
+  background: black;
+  color: white;
+  font-size: 15px;
 }
