@@ -32,7 +32,7 @@ public class GreeterWebView : WebKit.WebView {
             } else if (type == LightDM.MessageType.INFO) {
                 stype = "info";
             }
-            instance.execute_script("show_message(%s, %s)".printf (text, stype));
+            instance.execute_script("show_message('%s', '%s')".printf (text, stype));
         });
 
         DotfiveGreeter.instance.show_prompt.connect((text, type) => {
@@ -42,7 +42,7 @@ public class GreeterWebView : WebKit.WebView {
             } else if (type == LightDM.PromptType.QUESTION) {
                 stype = "question";
             }
-            instance.execute_script("show_prompt(%s, %s)".printf (text, stype));
+            instance.execute_script("show_prompt('%s', '%s')".printf (text, stype));
         });
 
         DotfiveGreeter.instance.authentication_complete.connect(() => {
