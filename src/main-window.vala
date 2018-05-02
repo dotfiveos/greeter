@@ -126,6 +126,7 @@ public class MainWindow : Gtk.Window {
         } */
     }
 
+    
     // called by javascript
     public static JSCore.Value exit(JSCore.Context ctx,
                                 JSCore.Object function,
