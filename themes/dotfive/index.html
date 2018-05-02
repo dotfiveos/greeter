@@ -60,10 +60,23 @@
         <!-- <button onclick="app_exit('goodbye from Javascript')">Login</button> -->
         <button onclick="authenticate()">Login</button>
       </form>
-      <p id="session"></p>
+      
     </div>
-    <script>
-      document.getElementById('session').innerHTML = lightdm.get_default_session_hint();
-    </script>
+    <div class="debug">
+        <p id="default-session"></p>
+        <p id="select-user"></p>
+        <p id="show-manual"></p>
+        <p id="show-remote"></p>
+        <p id="hide-users"></p>
+        <p id="has-guest-account"></p>
+        <script>
+          document.getElementById('default-session').innerHTML = lightdm.get_default_session_hint();
+          document.getElementById('select-user').innerHTML = lightdm.get_select_user_hint();
+          document.getElementById('show-manual').innerHTML = lightdm.get_show_manual_login_hint();
+          document.getElementById('show-remote').innerHTML = lightdm.get_show_remote_login_hint();
+          document.getElementById('hide-users').innerHTML = lightdm.get_hide_users_hint();
+          document.getElementById('has-guest-account').innerHTML = lightdm.get_has_guest_account_hint();
+        </script>
+    </div>
   </body>
 </html>

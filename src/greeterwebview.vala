@@ -82,8 +82,28 @@ public class GreeterWebView : WebKit.WebView {
         return new JSCore.Value.null(ctx);
     }
 
-    public static JSCore.Value get_default_session_hint(JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
+    public static JSCore.Value get_default_session_hint (JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
         return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(DotfiveGreeter.instance.default_session_hint()));
+    }
+
+    public static JSCore.Value get_select_user_hint (JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
+        return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(DotfiveGreeter.instance.select_user_hint()));
+    }
+
+    public static JSCore.Value get_show_manual_login_hint (JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
+        return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(DotfiveGreeter.instance.show_manual_login_hint()));
+    }
+
+    public static JSCore.Value get_show_remote_login_hint (JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
+        return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(DotfiveGreeter.instance.show_remote_login_hint()));
+    }
+
+    public static JSCore.Value get_hide_users_hint (JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
+        return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(DotfiveGreeter.instance.hide_users_hint()));
+    }
+
+    public static JSCore.Value get_has_guest_account_hint (JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
+        return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(DotfiveGreeter.instance.has_guest_account_hint()));
     }
 
     /* public static JSCore.Value get_default_session_hint (JSCore.Context ctx, JSCore.Object thisObject, JSCore.String propertyName, out JSCore.Value exception) {
@@ -97,8 +117,16 @@ public class GreeterWebView : WebKit.WebView {
     // static const JSCore.StaticValue[] lightdm_values = {};
 
     static const JSCore.StaticFunction[] lightdm_functions = {
+        // functions
         {"authenticate", authenticate_cb, JSCore.PropertyAttribute.ReadOnly},
-        {"get_default_session_hint", get_default_session_hint, JSCore.PropertyAttribute.ReadOnly}
+
+        // getters
+        {"get_default_session_hint", get_default_session_hint, JSCore.PropertyAttribute.ReadOnly},
+        {"get_select_user_hint", get_select_user_hint, JSCore.PropertyAttribute.ReadOnly},
+        {"get_show_manual_login_hint", get_show_manual_login_hint, JSCore.PropertyAttribute.ReadOnly},
+        {"get_show_remote_login_hint", get_show_remote_login_hint, JSCore.PropertyAttribute.ReadOnly},
+        {"get_hide_users_hint", get_hide_users_hint, JSCore.PropertyAttribute.ReadOnly},
+        {"get_has_guest_account_hint", get_has_guest_account_hint, JSCore.PropertyAttribute.ReadOnly}
     };
 
     static const JSCore.ClassDefinition lightdm_definition = {
