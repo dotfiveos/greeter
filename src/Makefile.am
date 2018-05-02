@@ -35,7 +35,7 @@ lightdm_dotfive_greeter_VALAFLAGS = \
 	--pkg libsoup-2.4 \
 	--pkg webkitgtk-3.0 \
 	--pkg javascriptcore \
-	--vapidir=../vapi
+	--vapidir=.
 
 # --pkg javascriptcoregtk-4.0
 # --pkg webkit2gtk-4.0
