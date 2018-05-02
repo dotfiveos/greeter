@@ -103,7 +103,7 @@ public class GreeterWebView : WebKit.WebView {
     }
 
     public static JSCore.Value get_has_guest_account_hint (JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
-        return new JSCore.Value.boolean(ctx, DotfiveGreeter.instance.has_guest_account_hint;
+        return new JSCore.Value.boolean(ctx, DotfiveGreeter.instance.has_guest_account_hint);
     }
 
     /* public static JSCore.Value get_default_session_hint (JSCore.Context ctx, JSCore.Object thisObject, JSCore.String propertyName, out JSCore.Value exception) {
