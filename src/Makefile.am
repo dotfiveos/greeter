@@ -23,6 +23,7 @@ lightdm_dotfive_greeter_VALAFLAGS = \
 	$(AM_VALAFLAGS) \
 	--debug \
 	--target-glib 2.32 \
+	--vapidir ../vapi \
 	--pkg posix \
 	--pkg gtk+-3.0 \
 	--pkg gdk-x11-3.0 \
@@ -34,8 +35,7 @@ lightdm_dotfive_greeter_VALAFLAGS = \
 	--pkg pixman-1 \
 	--pkg libsoup-2.4 \
 	--pkg webkitgtk-3.0 \
-	--pkg javascriptcore \
-	--vapidir=.
+	--pkg javascriptcore
 
 # --pkg javascriptcoregtk-4.0
 # --pkg webkit2gtk-4.0
