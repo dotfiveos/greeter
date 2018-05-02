@@ -140,7 +140,7 @@ public class MainWindow : Gtk.Window {
         char *c_string = new char[max_size];
         JSCore_string.get_utf8_c_string(c_string, max_size);
 
-        stdout.printf("%s\n", (string) c_string);
+        debug("%s\n", (string) c_string);
 
         Gtk.main_quit();
 
