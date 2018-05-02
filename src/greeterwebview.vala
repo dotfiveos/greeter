@@ -5,7 +5,7 @@ public class GreeterWebView : WebKit.WebView {
     private GreeterWebView () {
         this.window_object_cleared.connect(addApp);
 
-        WebSettings web_settings = this.get_settings();
+        WebKit.WebSettings web_settings = this.get_settings();
 
         web_settings.enable_plugins = true;
         web_settings.enable_scripts = true;
@@ -90,7 +90,7 @@ public class GreeterWebView : WebKit.WebView {
     }
 
     // passes data to javascript via having the javascript call a function
-    public void addApp(WebFrame frame, void *context, void *window_object) {
+    public void addApp(WebKit.WebFrame frame, void *context, void *window_object) {
         unowned JSCore.Context ctx = (JSCore.Context) context;
         JSCore.Object global = ctx.get_global_object();
         
