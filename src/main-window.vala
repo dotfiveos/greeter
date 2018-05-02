@@ -148,27 +148,25 @@ public class MainWindow : Gtk.Window {
 
     // passes data to javascript via having the javascript call a function
     public void addApp(WebFrame frame, void *context, void *window_object) {
-        // expose app_getData function to javascript context
         unowned JSCore.Context ctx = (JSCore.Context) context;
         JSCore.Object global = ctx.get_global_object();
-
+        
         JSCore.String name = new JSCore.String.with_utf8_c_string("app_getData");
         JSCore.Value ex;
-                        
+                            
         global.set_property(ctx,
-                        name,
-                        new JSCore.Object.function_with_callback(ctx, name, getData),
-                        JSCore.PropertyAttribute.ReadOnly,
-                        out ex);
+                            name,
+                            new JSCore.Object.function_with_callback(ctx, name, getData),
+                            JSCore.PropertyAttribute.ReadOnly,
+                            out ex);
 
-        // receive app_exit call from javascript
         name = new JSCore.String.with_utf8_c_string("app_exit");
         
         global.set_property(ctx,
-                        name,
-                        new JSCore.Object.function_with_callback(ctx, name, exit),
-                        JSCore.PropertyAttribute.ReadOnly,
-                        out ex);
+                            name,
+                            new JSCore.Object.function_with_callback(ctx, name, exit),
+                            JSCore.PropertyAttribute.ReadOnly,
+                            out ex);
     }
 
     /**
