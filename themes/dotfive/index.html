@@ -18,7 +18,7 @@
         document.getElementById('debug').innerHTML = 'prompt: ' + text + ' - ' + type;
         if (type == 'secret') {
           if(text == 'Password: ') {
-            
+
           }
         }
       }
@@ -60,6 +60,10 @@
         <!-- <button onclick="app_exit('goodbye from Javascript')">Login</button> -->
         <button onclick="authenticate()">Login</button>
       </form>
+      <p id="session"></p>
     </div>
+    <script>
+      document.getElementById('session').innerHTML = lightdm.default_session_hint
+    </script>
   </body>
 </html>
