@@ -67,7 +67,7 @@ public class MainWindow : Gtk.Window {
         string theme_url = "file://" + Config.THEME_DIR + "/" + theme_name + "/index.html";
         debug("Theme URL %s", theme_url);
 
-        DotfiveGreeter.instance.show_message.connect((string text, LightDM.MessageType type) => {
+        DotfiveGreeter.instance.show_message.connect((text, type) => {
             string stype;
             if(type == LightDM.MessageType.ERROR) {
                 stype = "error";
