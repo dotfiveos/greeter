@@ -27,10 +27,11 @@ PKG_CHECK_MODULES(DOTFIVE_GREETER, [
     x11
     xext
     libsoup-2.4
-    dnl webkit2gtk-4.0
     webkitgtk-3.0
     javascriptcoregtk-4.0
 ])
+
+dnl webkit2gtk-4.0
 
 dnl ###########################################################################
 dnl Configurable values
