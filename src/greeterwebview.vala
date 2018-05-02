@@ -1,7 +1,6 @@
 
 public class GreeterWebView : WebKit.WebView {
 
-
     public GreeterWebView () {
         this.window_object_cleared.connect(addApp);
 
@@ -89,6 +88,39 @@ public class GreeterWebView : WebKit.WebView {
         return new JSCore.Value.null(ctx);
     }
 
+    public static JSCore.Value authenticate_cb(JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
+        exception = null;
+
+        if(arguments.length > 0) {
+            JSCore.String JSCore_string = arguments[0].to_string_copy(ctx, null);
+
+            size_t max_size = JSCore_string.get_maximum_utf8_c_string_size();
+            char *c_string = new char[max_size];
+            JSCore_string.get_utf8_c_string(c_string, max_size);
+
+            debug("authenticating as: %s\n", (string) c_string);
+
+            DotfiveGreeter.instance.authenticate((string) c_string);
+        } else {
+            DotfiveGreeter.instance.authenticate();
+        }
+
+        return new JSCore.Value.null(ctx);
+    }
+
+    JSCore.StaticFunction[] lightdm_functions = {
+        {"authenticate", authenticate_cb, PropertyAttribute.ReadOnly}
+    };
+
+    JSCore.ClassDefinition lightdm_definition = {
+        0,
+        ClassAttribute.None,
+        "LightDM",
+        null,
+        null,
+        lightdm_functions
+    };
+
     // passes data to javascript via having the javascript call a function
     public void addApp(WebKit.WebFrame frame, void *context, void *window_object) {
         unowned JSCore.Context ctx = (JSCore.Context) context;
@@ -110,5 +142,14 @@ public class GreeterWebView : WebKit.WebView {
                             new JSCore.Object.function_with_callback(ctx, name, exit),
                             JSCore.PropertyAttribute.ReadOnly,
                             out ex);
+
+        JSCore.Class lightdm_class = new JSCore.Class(lightdm_definition);
+        JSCore.Object lightdm_object = new JSCore.Object(ctx, lightdm_class, null);
+        global.set_property(
+            ctx,
+            new JSCore.String.with_utf8_c_string("lightdm"),
+            lightdm_object,
+            JSCore.PropertyAttribute.ReadOnly,
+            out ex );
     }
 }

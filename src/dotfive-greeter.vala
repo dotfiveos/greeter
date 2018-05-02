@@ -82,6 +82,10 @@ public class DotfiveGreeter {
         Bus.own_name (BusType.SESSION, "x.dm.DotfiveGreeter", BusNameOwnerFlags.NONE);       
     }
 
+    public void authenticate (string? userid = null) {
+        greeter.authenticate (userid);
+    } 
+
     /**
      * Original Function Copyright (C) 2011 Canonical Ltd 
      * Modified Function Copyright (C) 2018 Keith Mitchell 
