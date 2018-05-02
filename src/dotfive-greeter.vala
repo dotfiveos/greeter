@@ -82,9 +82,53 @@ public class DotfiveGreeter {
         Bus.own_name (BusType.SESSION, "x.dm.DotfiveGreeter", BusNameOwnerFlags.NONE);       
     }
 
+    public bool is_authenticated () {
+        return greeter.is_authenticated;
+    }
+
     public void authenticate (string? userid = null) {
         greeter.authenticate (userid);
-    } 
+    }
+
+    public void authenticate_as_guest () {
+        greeter.authenticate_as_guest ();
+    }
+
+    public void cancel_authentication () {
+        greeter.cancel_authentication ();
+    }
+
+    public void respond (string response) {
+        greeter.respond (response);
+    }
+
+    public string authentication_user () {
+        return greeter.authentication_user;
+    }
+
+    public string default_session_hint () {
+        return greeter.default_session_hint;
+    }
+
+    public string select_user_hint () {
+        return greeter.select_user_hint;
+    }
+
+    public bool show_manual_login_hint () {
+        return greeter.show_manual_login_hint;
+    }
+
+    public bool show_remote_login_hint () {
+        return greeter.show_remote_login_hint;
+    }
+
+    public bool hide_users_hint () {
+        return greeter.hide_users_hint;
+    }
+
+    public bool has_guest_account_hint () {
+        return greeter.has_guest_account_hint;
+    }
 
     /**
      * Original Function Copyright (C) 2011 Canonical Ltd 

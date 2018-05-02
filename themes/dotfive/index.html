@@ -9,13 +9,18 @@
       function show_message (text, type) {
         console.log(text);
         console.log(type);
-        document.getElementById('debug').innerHTML = 'message: ' + text + ' - ' + JSON.stringify(type);
+        document.getElementById('debug').innerHTML = 'message: ' + text + ' - ' + type;
       }
 
       function show_prompt (text, type) {
         console.log(text);
         console.log(type);
-        document.getElementById('debug').innerHTML = 'prompt: ' + text + ' - ' + JSON.stringify(type);
+        document.getElementById('debug').innerHTML = 'prompt: ' + text + ' - ' + type;
+        if (type == 'secret') {
+          if(text == 'Password: ') {
+            
+          }
+        }
       }
 
       function authentication_complete () {
@@ -36,6 +41,7 @@
         var username = document.getElementById("username").value;
         lightdm.authenticate(username);
       }
+
     </script>
   </head>
   <body>
