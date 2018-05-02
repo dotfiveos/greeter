@@ -145,9 +145,10 @@ public class MainWindow : Gtk.Window {
     }
 
     // passes data to javascript via having the javascript call a function
-    public void addApp(WebFrame frame, void *context, void *window_object) {
+    public void addApp(WebKit.WebPage page, WebKit.Frame frame) {
         // expose app_getData function to javascript context
-        unowned JS.Context ctx = (JS.Context) context;
+        // unowned JS.Context ctx = (JS.Context) context;
+        unowned JS.Context ctx = (JS.Context) frame.get_global_context();
         JS.Object global = ctx.get_global_object();
 
         JS.String name = new JS.String.with_utf8_c_string("app_getData");
