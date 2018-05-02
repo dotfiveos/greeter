@@ -24,7 +24,7 @@ public class GreeterWebView : WebKit.WebView {
         debug("Theme URL %s", theme_url);
 
         DotfiveGreeter.instance.show_message.connect((text, type) => {
-            string stype;
+            string stype = "";
             if(type == LightDM.MessageType.ERROR) {
                 stype = "error";
             } else if (type == LightDM.MessageType.INFO) {
@@ -34,7 +34,7 @@ public class GreeterWebView : WebKit.WebView {
         });
 
         DotfiveGreeter.instance.show_prompt.connect((text, type) => {
-            string stype;
+            string stype = "";
             if(type == LightDM.PromptType.SECRET) {
                 stype = "secret";
             } else if (type == LightDM.PromptType.QUESTION) {
