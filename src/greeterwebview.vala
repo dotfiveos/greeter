@@ -56,41 +56,6 @@ public class GreeterWebView : WebKit.WebView {
         this.load_uri(theme_url);
     }
 
-    public static JSCore.Value getData(JSCore.Context ctx,
-                                   JSCore.Object function,
-                                   JSCore.Object thisObject,
-                                   JSCore.Value[] arguments,
-                                   out JSCore.Value exception) {
-        exception = null;
-
-        return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string("test string!"));
-
-        /* lock (data) {
-            return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(data));
-        } */
-    }
-
-    // called by javascript
-    public static JSCore.Value exit(JSCore.Context ctx,
-                                JSCore.Object function,
-                                JSCore.Object thisObject,
-                                JSCore.Value[] arguments,
-                                out JSCore.Value exception) {
-        exception = null;
-
-        JSCore.String JSCore_string = arguments[0].to_string_copy(ctx, null);
-
-        size_t max_size = JSCore_string.get_maximum_utf8_c_string_size();
-        char *c_string = new char[max_size];
-        JSCore_string.get_utf8_c_string(c_string, max_size);
-
-        debug("%s\n", (string) c_string);
-
-        Gtk.main_quit();
-
-        return new JSCore.Value.null(ctx);
-    }
-
     public static JSCore.Value authenticate_cb(JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
         exception = null;
 
@@ -108,6 +73,7 @@ public class GreeterWebView : WebKit.WebView {
             DotfiveGreeter.instance.authenticate();
         }
 
+        // return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(data));
         return new JSCore.Value.null(ctx);
     }
 
@@ -129,22 +95,7 @@ public class GreeterWebView : WebKit.WebView {
         unowned JSCore.Context ctx = (JSCore.Context) context;
         JSCore.Object global = ctx.get_global_object();
         
-        JSCore.String name = new JSCore.String.with_utf8_c_string("app_getData");
         JSCore.Value ex;
-                            
-        global.set_property(ctx,
-                            name,
-                            new JSCore.Object.function_with_callback(ctx, name, getData),
-                            JSCore.PropertyAttribute.ReadOnly,
-                            out ex);
-
-        name = new JSCore.String.with_utf8_c_string("app_exit");
-        
-        global.set_property(ctx,
-                            name,
-                            new JSCore.Object.function_with_callback(ctx, name, exit),
-                            JSCore.PropertyAttribute.ReadOnly,
-                            out ex);
 
         JSCore.Class lightdm_class = new JSCore.Class(lightdm_definition);
         JSCore.Object lightdm_object = new JSCore.Object(ctx, lightdm_class, null);
