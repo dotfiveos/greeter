@@ -77,7 +77,7 @@ public class GreeterWebView : WebKit.WebView {
         return new JSCore.Value.null(ctx);
     }
 
-    public static JSCore.Value get_default_session_hint (JSCore.Context context, JSCore.Object thisObject, JSCore.String propertyName, out JSCore.Value exception) {
+    public static JSCore.Value get_default_session_hint (JSCore.Context ctx, JSCore.Object thisObject, JSCore.String propertyName, out JSCore.Value exception) {
         return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(DotfiveGreeter.instance.default_session_hint()));
     }
 
