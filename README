@@ -15,12 +15,13 @@ Default LightDM greeter for dotfive written in Vala.
 
   * Check for existence of known bugs 
     * https://stackoverflow.com/questions/43499146/gtk-3-window-freezes-when-webkit2-is-used-vala
-  * figure out what to do to use the `webkit2gtk-4.0` and `javascriptcoregtl-4.0` instead of custom VAPIs
-# References
+  * Figure out what to do to use the `webkit2gtk-4.0`, `webkit2gtk-web-extention-4.0` and `javascriptcoregtl-4.0` instead of custom VAPIs
 
+# References
  * http://www.mattfischer.com/blog/archives/5
  * https://github.com/linuxmint/slick-greeter/
  * https://valadoc.org/gtk+-3.0/Gtk.Window.html
  * https://valadoc.org/webkit2gtk-4.0/WebKit.WebView.html
  * https://valadoc.org/webkit2gtk-4.0/index.htm
  * https://github.com/davedoesdev/davedoesdev/blob/master/posts/wrapping-webkit-1.md
+ * https://github.com/udienz/maleo-debian
