@@ -1,4 +1,3 @@
-
 public class GreeterWebView : WebKit.WebView {
 
     public static GreeterWebView instance;
