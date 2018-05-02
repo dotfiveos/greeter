@@ -348,7 +348,7 @@ namespace JSCore {
 	}
 
 	[Compact]
-	[CCode (cname = "ConstOpaqueJSValue", free_function = "")]
+	[CCode (cname = "OpaqueJSValue", free_function = "")]
 	public class ConstValue : JSCore.Value
 	{
 	}
