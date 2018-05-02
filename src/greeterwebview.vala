@@ -22,7 +22,7 @@ public class GreeterWebView : WebKit.WebView {
         web_settings.javascript_can_access_clipboard = true;
         web_settings.user_agent = "DotFive Login Greeter (https://github.com/dotfiveos/greeter)";
 
-        debug("Getting theme name and url")
+        debug("Getting theme name and url");
         string theme_name = DotfiveGreeter.instance.config.get_string("greeter", "theme");
         debug("Using theme %s", theme_name);
         string theme_url = "file://" + Config.THEME_DIR + "/" + theme_name + "/index.html";
