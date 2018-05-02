@@ -75,6 +75,14 @@ public class MainWindow : Gtk.Window {
             web_view.execute_script("show_message(%s, %s)".printf (text, stype));
         });
 
+        DotfiveGreeter.instance.show_prompt.connect((text, type) => {
+            string stype;
+            if(type == LightDM.PromptType.ERROR) {
+                stype = "error";
+            }
+            web_view.execute_script("show_prompt(%s, %s)".printf (text, stype));
+        });
+
         web_view.load_uri(theme_url);
         this.add(web_view); 
 
