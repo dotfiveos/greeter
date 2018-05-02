@@ -1,0 +1,24 @@
+#!/bin/bash
+
+gcc_dir=$(gcc -print-search-dirs | head -1 | cut -d ' ' -f 2)
+
+if test "$1" = "-E"
+then
+  ifile=""
+  for arg in "$@"
+  do
+    if [[ "$arg" = *.i ]]
+    then
+      ifile="$arg"
+    fi
+  done
+  "$gcc_dir/cc1" "$@" 
+  r=$?
+  if test $r -eq 0 -a -n "$ifile"
+  then
+    sed -e 's/ConstOpaqueJSValue\*\*/const struct OpaqueJSValue\* const\*/g' -e 's/ConstOpaqueJSValue\*/const struct OpaqueJSValue\*/g' "$ifile" | sponge "$ifile"
+  fi
+  exit $?
+else
+  exec "$gcc_dir/cc1" "$@"
+fi

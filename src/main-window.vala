@@ -1,3 +1,4 @@
+using Gtk;
 using WebKit;
 using Soup;
 
