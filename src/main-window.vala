@@ -1,4 +1,4 @@
-// using WebKit;
+using WebKit;
 using Soup;
 
 public class Monitor {
