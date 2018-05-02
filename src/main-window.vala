@@ -112,10 +112,10 @@ public class MainWindow : Gtk.Window {
         setup_window(); // required otherwise it waits for another change before resizing
     }
 
-    public static JSCore.Value getData(JSCore.Context ctx,
+    public static JSCore.Value getData(JS.Context ctx,
                                    JSCore.Object function,
                                    JSCore.Object thisObject,
-                                   JSCore.ConstValue[] arguments,
+                                   JSCore.Value[] arguments,
                                    out JSCore.Value exception) {
         exception = null;
 
@@ -130,7 +130,7 @@ public class MainWindow : Gtk.Window {
     public static JSCore.Value exit(JSCore.Context ctx,
                                 JSCore.Object function,
                                 JSCore.Object thisObject,
-                                JSCore.ConstValue[] arguments,
+                                JSCore.Value[] arguments,
                                 out JSCore.Value exception) {
         exception = null;
 
