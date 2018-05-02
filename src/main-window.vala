@@ -72,8 +72,8 @@ public class MainWindow : Gtk.Window {
             if(type == LightDM.MessageType.ERROR) {
                 stype = "error";
             }
-            web_view.execute_script("show_message(%s, %s)".printf (text, stype))
-        })
+            web_view.execute_script("show_message(%s, %s)".printf (text, stype));
+        });
 
         web_view.load_uri(theme_url);
         this.add(web_view); 
