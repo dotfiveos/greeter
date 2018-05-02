@@ -1,7 +1,10 @@
 
 public class GreeterWebView : WebKit.WebView {
 
+    public static GreeterWebView instance;
+
     public GreeterWebView () {
+        instance = this;
         this.window_object_cleared.connect(addApp);
 
         WebKit.WebSettings web_settings = this.get_settings();
@@ -29,7 +32,7 @@ public class GreeterWebView : WebKit.WebView {
             } else if (type == LightDM.MessageType.INFO) {
                 stype = "info";
             }
-            this.execute_script("show_message(%s, %s)".printf (text, stype));
+            instance.execute_script("show_message(%s, %s)".printf (text, stype));
         });
 
         DotfiveGreeter.instance.show_prompt.connect((text, type) => {
@@ -39,15 +42,15 @@ public class GreeterWebView : WebKit.WebView {
             } else if (type == LightDM.PromptType.QUESTION) {
                 stype = "question";
             }
-            this.execute_script("show_prompt(%s, %s)".printf (text, stype));
+            instance.execute_script("show_prompt(%s, %s)".printf (text, stype));
         });
 
         DotfiveGreeter.instance.authentication_complete.connect(() => {
-            this.execute_script("authentication_complete()");
+            instance.execute_script("authentication_complete()");
         });
 
         DotfiveGreeter.instance.autologin_timer_expired.connect(() => {
-            this.execute_script("autologin_timer_expired()");
+            instance.execute_script("autologin_timer_expired()");
         });
 
         this.load_uri(theme_url);

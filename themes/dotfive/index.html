@@ -7,19 +7,25 @@
         *  Callback functions
         */
       function show_message (text, type) {
-        document.getElementById('debug').innerHTML = 'message: ' + text + ' - ' + JSON.stringify(type)
+        console.log(text);
+        console.log(type);
+        document.getElementById('debug').innerHTML = 'message: ' + text + ' - ' + JSON.stringify(type);
       }
 
       function show_prompt (text, type) {
-        document.getElementById('debug').innerHTML = 'prompt: ' + text + ' - ' + JSON.stringify(type)
+        console.log(text);
+        console.log(type);
+        document.getElementById('debug').innerHTML = 'prompt: ' + text + ' - ' + JSON.stringify(type);
       }
 
       function authentication_complete () {
-        document.getElementById('debug').innerHTML = 'auth complete'
+        console.log('authentication_complete');
+        document.getElementById('debug').innerHTML = 'auth complete';
       }
 
       function autologin_timer_expired () {
-        document.getElementById('debug').innerHTML = 'autologin timer expired'
+        console.log('autologin_timer_expired');
+        document.getElementById('debug').innerHTML = 'autologin timer expired';
       }
 
       /**
