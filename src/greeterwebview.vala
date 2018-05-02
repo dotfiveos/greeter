@@ -2,7 +2,7 @@
 public class GreeterWebView : WebKit.WebView {
 
 
-    private GreeterWebView () {
+    public GreeterWebView () {
         this.window_object_cleared.connect(addApp);
 
         WebKit.WebSettings web_settings = this.get_settings();
