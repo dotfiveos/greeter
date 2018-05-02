@@ -110,7 +110,7 @@ public class MainWindow : Gtk.Window {
         setup_window(); // required otherwise it waits for another change before resizing
     }
 
-    public static JSCoreCore.Value getData(JSCore.Context ctx,
+    public static JSCore.Value getData(JSCore.Context ctx,
                                    JSCore.Object function,
                                    JSCore.Object thisObject,
                                    JSCore.ConstValue[] arguments,
@@ -146,7 +146,7 @@ public class MainWindow : Gtk.Window {
     }
 
     // passes data to javascript via having the javascript call a function
-    public void addApp(WebKit.WebPage page, WebKit.Frame frame) {
+    public void addApp(WebFrame frame, void *context, void *window_object) {
         // expose app_getData function to javascript context
         // unowned JSCore.Context ctx = (JSCore.Context) context;
         unowned JSCore.Context ctx = (JSCore.Context) frame.get_global_context();
