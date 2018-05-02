@@ -183,6 +183,7 @@ namespace JSCore {
                                                                          JSCore.Type type,
                                                                          out JSCore.Value exception);
 
+  [CCode (cname = "JSStaticValue")]
   public struct StaticValue {
     public string name;
     public ObjectGetPropertyCallback getProperty;
