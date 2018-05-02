@@ -48,18 +48,19 @@ public class MainWindow : Gtk.Window {
 
         this.get_style_context().add_class("lightdm");
 
-        UserStyleSheet global_styles = new WebKit.UserStyleSheet("", UserContentInjectedFrames.TOP_FRAME, UserStyleLevel.USER, null, null);
+        // UserStyleSheet global_styles = new WebKit.UserStyleSheet("", UserContentInjectedFrames.TOP_FRAME, UserStyleLevel.USER, null, null);
 
-        UserContentManager content_manager = new WebKit.UserContentManager();
-        content_manager.add_style_sheet(global_styles);
+        // UserContentManager content_manager = new WebKit.UserContentManager();
+        // content_manager.add_style_sheet(global_styles);
 
-        web_view = new WebKit.WebView.with_user_content_manager(content_manager);
+        // web_view = new WebKit.WebView.with_user_content_manager(content_manager);
+        web_view = new WebKit();
         // WebView();
 
         web_view.window_object_cleared.connect(addApp);
 
         // var web_settings = new WebKit.Settings();
-        WebKit.Settings web_settings = web_view.get_settings();
+        WebSettings web_settings = web_view.get_settings();
 
         web_settings.enable_plugins = true;
         web_settings.enable_scripts = true;
