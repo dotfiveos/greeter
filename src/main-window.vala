@@ -110,64 +110,64 @@ public class MainWindow : Gtk.Window {
         setup_window(); // required otherwise it waits for another change before resizing
     }
 
-    public static JS.Value getData(JS.Context ctx,
-                                   JS.Object function,
-                                   JS.Object thisObject,
-                                   JS.Value[] arguments,
-                                   out JS.Value exception) {
+    public static JSCoreCore.Value getData(JSCore.Context ctx,
+                                   JSCore.Object function,
+                                   JSCore.Object thisObject,
+                                   JSCore.ConstValue[] arguments,
+                                   out JSCore.Value exception) {
         exception = null;
 
-        return new JS.Value.string(ctx, new JS.String.with_utf8_c_string("test string!"));
+        return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string("test string!"));
 
         /* lock (data) {
-            return new JS.Value.string(ctx, new JS.String.with_utf8_c_string(data));
+            return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(data));
         } */
     }
 
     // called by javascript
-    public static JS.Value exit(JS.Context ctx,
-                                JS.Object function,
-                                JS.Object thisObject,
-                                JS.Value[] arguments,
-                                out JS.Value exception) {
+    public static JSCore.Value exit(JSCore.Context ctx,
+                                JSCore.Object function,
+                                JSCore.Object thisObject,
+                                JSCore.ConstValue[] arguments,
+                                out JSCore.Value exception) {
         exception = null;
 
-        JS.String js_string = arguments[0].to_string_copy(ctx, null);
+        JSCore.String JSCore_string = arguments[0].to_string_copy(ctx, null);
 
-        size_t max_size = js_string.get_maximum_utf8_c_string_size();
+        size_t max_size = JSCore_string.get_maximum_utf8_c_string_size();
         char *c_string = new char[max_size];
-        js_string.get_utf8_c_string(c_string, max_size);
+        JSCore_string.get_utf8_c_string(c_string, max_size);
 
         stdout.printf("%s\n", (string) c_string);
 
         Gtk.main_quit();
 
-        return new JS.Value.null(ctx);
+        return new JSCore.Value.null(ctx);
     }
 
     // passes data to javascript via having the javascript call a function
     public void addApp(WebKit.WebPage page, WebKit.Frame frame) {
         // expose app_getData function to javascript context
-        // unowned JS.Context ctx = (JS.Context) context;
-        unowned JS.Context ctx = (JS.Context) frame.get_global_context();
-        JS.Object global = ctx.get_global_object();
+        // unowned JSCore.Context ctx = (JSCore.Context) context;
+        unowned JSCore.Context ctx = (JSCore.Context) frame.get_global_context();
+        JSCore.Object global = ctx.get_global_object();
 
-        JS.String name = new JS.String.with_utf8_c_string("app_getData");
-        JS.Value ex;
+        JSCore.String name = new JSCore.String.with_utf8_c_string("app_getData");
+        JSCore.Value ex;
                         
         global.set_property(ctx,
                         name,
-                        new JS.Object.function_with_callback(ctx, name, getData),
-                        JS.PropertyAttribute.ReadOnly,
+                        new JSCore.Object.function_with_callback(ctx, name, getData),
+                        JSCore.PropertyAttribute.ReadOnly,
                         out ex);
 
         // receive app_exit call from javascript
-        name = new JS.String.with_utf8_c_string("app_exit");
+        name = new JSCore.String.with_utf8_c_string("app_exit");
         
         global.set_property(ctx,
                         name,
-                        new JS.Object.function_with_callback(ctx, name, exit),
-                        JS.PropertyAttribute.ReadOnly,
+                        new JSCore.Object.function_with_callback(ctx, name, exit),
+                        JSCore.PropertyAttribute.ReadOnly,
                         out ex);
     }
 
