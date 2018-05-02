@@ -71,24 +71,28 @@ public class MainWindow : Gtk.Window {
             string stype;
             if(type == LightDM.MessageType.ERROR) {
                 stype = "error";
+            } else if (type == LightDM.MessageType.INFO) {
+                stype = "info";
             }
             web_view.execute_script("show_message(%s, %s)".printf (text, stype));
         });
 
         DotfiveGreeter.instance.show_prompt.connect((text, type) => {
             string stype;
-            if(type == LightDM.PromptType.ERROR) {
-                stype = "error";
+            if(type == LightDM.PromptType.SECRET) {
+                stype = "secret";
+            } else if (type == LightDM.PromptType.QUESTION) {
+                stype = "question";
             }
             web_view.execute_script("show_prompt(%s, %s)".printf (text, stype));
         });
 
         DotfiveGreeter.instance.authentication_complete.connect(() => {
-            web_view.execute_script("authentication_complete()".printf (text, stype));
+            web_view.execute_script("authentication_complete()");
         });
 
         DotfiveGreeter.instance.autologin_timer_expired.connect(() => {
-            web_view.execute_script("autologin_timer_expired()".printf (text, stype));
+            web_view.execute_script("autologin_timer_expired()");
         });
 
         web_view.load_uri(theme_url);
