@@ -10,6 +10,8 @@ Default LightDM greeter for dotfive written in Vala.
 # Notes
 
  * `Log.set_default_handler (log_cb);` is required so it doesn't use the default logger which requires environment variables to be set and logs output strangely in a way lightdm doesn't capture it
+ * At the moment custom vapi files are required for javascriptcure because the bundled verison for Vala doesn't contain a Context
+ * VAPI files are required for webkitgtk as well because otherwise you need to mix `webkit2gtk-4.0` and `webkit2gtk-web-extention-4.0` (for bi-directional javascript) which currently isn't supported
 
 # TODO
 
