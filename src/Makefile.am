@@ -33,6 +33,7 @@ lightdm_dotfive_greeter_VALAFLAGS = \
 	--pkg pixman-1 \
 	--vapidir=./ \
 	# --pkg webkit2gtk-4.0 \
+	--pkg libsoup-2.4
 	--pkg webkitgtk-3.0 \
 	--pkg javascriptcoregtk-4.0 \
 	--target-glib 2.32

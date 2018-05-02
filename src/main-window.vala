@@ -1,4 +1,5 @@
 using WebKit;
+using Soup;
 
 public class Monitor {
     public int x;
