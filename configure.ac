@@ -26,8 +26,7 @@ PKG_CHECK_MODULES(DOTFIVE_GREETER, [
     pixman-1
     x11
     xext
-    dnl webkit2gtk-4.0
-    webkit2gtk-web-extension-4.0
+    webkit2gtk-4.0
     javascriptcoregtk-4.0
 ])
 
