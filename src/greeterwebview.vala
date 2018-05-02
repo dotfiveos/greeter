@@ -4,8 +4,11 @@ public class GreeterWebView : WebKit.WebView {
 
     public GreeterWebView () {
         instance = this;
+
+        debug("Hooking javascript window context");
         this.window_object_cleared.connect(addApp);
 
+        debug("Setting web settings");
         WebKit.WebSettings web_settings = this.get_settings();
 
         web_settings.enable_plugins = true;
@@ -19,11 +22,13 @@ public class GreeterWebView : WebKit.WebView {
         web_settings.javascript_can_access_clipboard = true;
         web_settings.user_agent = "DotFive Login Greeter (https://github.com/dotfiveos/greeter)";
 
+        debug("Getting theme name and url")
         string theme_name = DotfiveGreeter.instance.config.get_string("greeter", "theme");
         debug("Using theme %s", theme_name);
         string theme_url = "file://" + Config.THEME_DIR + "/" + theme_name + "/index.html";
         debug("Theme URL %s", theme_url);
 
+        debug("Connecting to LightDM signals");
         DotfiveGreeter.instance.show_message.connect((text, type) => {
             string stype = "";
             if(type == LightDM.MessageType.ERROR) {
@@ -52,6 +57,7 @@ public class GreeterWebView : WebKit.WebView {
             instance.execute_script("autologin_timer_expired()");
         });
 
+        debug("Loading theme uri");
         this.load_uri(theme_url);
     }
 
@@ -99,13 +105,17 @@ public class GreeterWebView : WebKit.WebView {
 
     // passes data to javascript via having the javascript call a function
     public void addApp(WebKit.WebFrame frame, void *context, void *window_object) {
+        debug("Adding objects to webkit context");
         unowned JSCore.Context ctx = (JSCore.Context) context;
         JSCore.Object global = ctx.get_global_object();
         
         JSCore.Value ex;
 
+        debug("Creating js class from definition");
         JSCore.Class lightdm_class = new JSCore.Class(lightdm_definition);
+        debug("Creating object from class");
         JSCore.Object lightdm_object = new JSCore.Object(ctx, lightdm_class, null);
+        debug("Injecting object into context");
         global.set_property(
             ctx,
             new JSCore.String.with_utf8_c_string("lightdm"),
