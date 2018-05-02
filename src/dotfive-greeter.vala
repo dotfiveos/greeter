@@ -10,8 +10,9 @@ public class DotfiveGreeter {
 
     public signal void show_message (string text, LightDM.MessageType type);
     public signal void show_prompt (string text, LightDM.PromptType type);
+    public signal void autologin_timer_expired ();
     public signal void authentication_complete ();
-    public signal void starting_session ();
+    // public signal void starting_session ();
 
     private Cairo.XlibSurface background_surface;
     private MainWindow main_window;
@@ -48,7 +49,8 @@ public class DotfiveGreeter {
         });
         
         greeter.autologin_timer_expired.connect (() => {
-            greeter.authenticate_autologin ();
+            autologin_timer_expired();
+            // greeter.authenticate_autologin ();
             debug("autologin time expired");
         });
         

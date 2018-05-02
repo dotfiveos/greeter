@@ -83,6 +83,14 @@ public class MainWindow : Gtk.Window {
             web_view.execute_script("show_prompt(%s, %s)".printf (text, stype));
         });
 
+        DotfiveGreeter.instance.authentication_complete.connect(() => {
+            web_view.execute_script("authentication_complete()".printf (text, stype));
+        })
+
+        DotfiveGreeter.instance.autologin_timer_expired.connect(() => {
+            web_view.execute_script("autologin_timer_expired()".printf (text, stype));
+        })
+
         web_view.load_uri(theme_url);
         this.add(web_view); 
 
