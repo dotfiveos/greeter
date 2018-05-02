@@ -91,19 +91,19 @@ public class GreeterWebView : WebKit.WebView {
     }
 
     public static JSCore.Value get_show_manual_login_hint (JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
-        return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(DotfiveGreeter.instance.show_manual_login_hint()));
+        return new JSCore.Value.boolean(ctx, DotfiveGreeter.instance.show_manual_login_hint);
     }
 
     public static JSCore.Value get_show_remote_login_hint (JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
-        return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(DotfiveGreeter.instance.show_remote_login_hint()));
+        return new JSCore.Value.boolean(ctx, DotfiveGreeter.instance.show_remote_login_hint);
     }
 
     public static JSCore.Value get_hide_users_hint (JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
-        return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(DotfiveGreeter.instance.hide_users_hint()));
+        return new JSCore.Value.boolean(ctx, DotfiveGreeter.instance.hide_users_hint);
     }
 
     public static JSCore.Value get_has_guest_account_hint (JSCore.Context ctx, JSCore.Object function, JSCore.Object thisObject, JSCore.Value[] arguments, out JSCore.Value exception) {
-        return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(DotfiveGreeter.instance.has_guest_account_hint()));
+        return new JSCore.Value.boolean(ctx, DotfiveGreeter.instance.has_guest_account_hint;
     }
 
     /* public static JSCore.Value get_default_session_hint (JSCore.Context ctx, JSCore.Object thisObject, JSCore.String propertyName, out JSCore.Value exception) {
