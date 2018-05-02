@@ -2,6 +2,10 @@
   <head>
     <link rel="stylesheet" href="style.css"></link>
     <script>
+
+      /**
+        *  Callback functions
+        */
       function show_message (text, type) {
         document.getElementById('debug').innerHTML = 'message: ' + text + ' - ' + JSON.stringify(type)
       }
@@ -17,6 +21,15 @@
       function autologin_timer_expired () {
         document.getElementById('debug').innerHTML = 'autologin timer expired'
       }
+
+      /**
+        *  Theme functions
+        */
+
+      function authenticate () {
+        var username = document.getElementById("username").value;
+        lightdm.authenticate(username);
+      }
     </script>
   </head>
   <body>
@@ -26,13 +39,14 @@
       <form>
         <div class="input-group">
           <label for="username">Username</label>
-          <input type="text" name="username">
+          <input type="text" name="username" id="username">
         </div>
         <div class="input-group">
           <label for="password">password</label>
-          <input type="password" name="password">
+          <input type="password" name="password" id="password">
         </div>
-        <button onclick="app_exit('goodbye from Javascript')">Login</button>
+        <!-- <button onclick="app_exit('goodbye from Javascript')">Login</button> -->
+        <button onclick="authenticate()">Login</button>
       </form>
     </div>
   </body>
