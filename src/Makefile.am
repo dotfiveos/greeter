@@ -32,11 +32,11 @@ lightdm_dotfive_greeter_VALAFLAGS = \
 	--pkg gio-2.0 \
 	--pkg pixman-1 \
 	--vapidir=./ \
-	# --pkg webkit2gtk-4.0 \
-	--pkg libsoup-2.4
+	--pkg libsoup-2.4 \
 	--pkg webkitgtk-3.0 \
 	--pkg javascriptcoregtk-4.0 \
 	--target-glib 2.32
+	# --pkg webkit2gtk-4.0 \
 
 lightdm_dotfive_greeter_LDADD = \
 	$(DOTFIVE_GREETER_LIBS) \
