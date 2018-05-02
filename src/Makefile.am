@@ -36,7 +36,8 @@ lightdm_dotfive_greeter_VALAFLAGS = \
 	--pkg webkitgtk-3.0 \
 	--pkg javascriptcoregtk-4.0 \
 	--target-glib 2.32
-	# --pkg webkit2gtk-4.0 \
+
+# --pkg webkit2gtk-4.0
 
 lightdm_dotfive_greeter_LDADD = \
 	$(DOTFIVE_GREETER_LIBS) \
