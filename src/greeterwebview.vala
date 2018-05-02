@@ -122,7 +122,7 @@ public class GreeterWebView : WebKit.WebView {
             ctx,
             new JSCore.String.with_utf8_c_string("lightdm"),
             lightdm_object,
-            JSCore.PropertyAttribute.ReadOnly,
+            JSCore.PropertyAttribute.None,
             out ex );
     }
 }
