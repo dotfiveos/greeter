@@ -77,6 +77,15 @@ public class GreeterWebView : WebKit.WebView {
         return new JSCore.Value.null(ctx);
     }
 
+    public static JSCore.Value get_default_session_hint (JSCore.Context context, JSCore.Object thisObject, JSCode.String propertyName, out JSCore.Value exception) {
+        const string session_hint = DotfiveGreeter.instance.default_session_hint();
+        return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(session_hint));
+    }
+
+    const JSCore.StaticValue[] lightdm_values = {
+        {"default_session_hint", get_default_session_hint, null, JSCore.PropertyAttribute.ReadOnly}
+    };
+
     const JSCore.StaticFunction[] lightdm_functions = {
         {"authenticate", authenticate_cb, JSCore.PropertyAttribute.ReadOnly}
     };
@@ -86,7 +95,7 @@ public class GreeterWebView : WebKit.WebView {
         JSCore.ClassAttribute.None,
         "LightDM",
         null,
-        null,
+        lightdm_values,
         lightdm_functions
     };
 
