@@ -54,7 +54,7 @@ public class MainWindow : Gtk.Window {
         // content_manager.add_style_sheet(global_styles);
 
         // web_view = new WebKit.WebView.with_user_content_manager(content_manager);
-        web_view = new WebKit();
+        web_view = new WebView();
         // WebView();
 
         web_view.window_object_cleared.connect(addApp);
@@ -65,8 +65,8 @@ public class MainWindow : Gtk.Window {
         web_settings.enable_plugins = true;
         web_settings.enable_scripts = true;
         web_settings.enable_universal_access_from_file_uris = true;
+        web_settings.enable_file_access_from_file_uris = true;
 
-        web_settings.allow_modal_dialogs = false;
         web_settings.auto_load_images = true;
         web_settings.default_font_family = "'sans-serif'";
         web_settings.default_font_size = 16;
