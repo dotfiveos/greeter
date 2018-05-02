@@ -86,9 +86,11 @@ public class GreeterWebView : WebKit.WebView {
         return new JSCore.Value.string(ctx, new JSCore.String.with_utf8_c_string(DotfiveGreeter.instance.default_session_hint()));
     }
 
-    static const JSCore.StaticValue[] lightdm_values = {
+    /* static const JSCore.StaticValue[] lightdm_values = {
         {"default_session_hint", get_default_session_hint, null, JSCore.PropertyAttribute.ReadOnly}
-    };
+    }; */
+
+    static const JSCore.StaticValue[] lightdm_values = {};
 
     static const JSCore.StaticFunction[] lightdm_functions = {
         {"authenticate", authenticate_cb, JSCore.PropertyAttribute.ReadOnly}
