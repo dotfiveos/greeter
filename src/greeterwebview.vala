@@ -109,12 +109,12 @@ public class GreeterWebView : WebKit.WebView {
     }
 
     JSCore.StaticFunction[] lightdm_functions = {
-        {"authenticate", authenticate_cb, PropertyAttribute.ReadOnly}
+        {"authenticate", authenticate_cb, JSCore.PropertyAttribute.ReadOnly}
     };
 
     JSCore.ClassDefinition lightdm_definition = {
         0,
-        ClassAttribute.None,
+        JSCore.ClassAttribute.None,
         "LightDM",
         null,
         null,
