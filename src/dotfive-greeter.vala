@@ -164,35 +164,10 @@ public class DotfiveGreeter {
         debug ("Setting cursor");
         Gdk.get_default_root_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.LEFT_PTR));
 
-        // Setting gtk settings (required?)
-        /*debug ("Setting GTK+ settings");
-        var settings = Gtk.Settings.get_default ();
-        var value = UGSettings.get_string (UGSettings.KEY_THEME_NAME);
-        if (value != "")
-            settings.set ("gtk-theme-name", value, null);
-        value = UGSettings.get_string (UGSettings.KEY_ICON_THEME_NAME);
-        if (value != "")
-            settings.set ("gtk-icon-theme-name", value, null);
-        value = UGSettings.get_string (UGSettings.KEY_FONT_NAME);
-        if (value != "")
-            settings.set ("gtk-font-name", value, null);
-        var double_value = UGSettings.get_double (UGSettings.KEY_XFT_DPI);
-        if (double_value != 0.0)
-            settings.set ("gtk-xft-dpi", (int) (1024 * double_value), null);
-        var boolean_value = UGSettings.get_boolean (UGSettings.KEY_XFT_ANTIALIAS);
-        settings.set ("gtk-xft-antialias", boolean_value, null);
-        value = UGSettings.get_string (UGSettings.KEY_XFT_HINTSTYLE);
-        if (value != "")
-            settings.set ("gtk-xft-hintstyle", value, null);
-        value = UGSettings.get_string (UGSettings.KEY_XFT_RGBA);
-        if (value != "")
-            settings.set ("gtk-xft-rgba", value, null);
-*/
         debug("Creating greeter instance");
-        var greeter = new DotfiveGreeter (true); // do_test_mode);
+        var greeter = new DotfiveGreeter (true);
 
         debug ("Showing greeter");
-        // greeter.show ();
 
         // Handler so we quit cleanly
         GLib.Unix.signal_add(GLib.ProcessSignal.TERM, () => {

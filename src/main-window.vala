@@ -40,27 +40,15 @@ public class MainWindow : Gtk.Window {
         var accel_group = new Gtk.AccelGroup ();
         add_accel_group (accel_group);
 
-        var bg_color = Gdk.RGBA ();
-        // bg_color.parse (UGSettings.get_string (UGSettings.KEY_BACKGROUND_COLOR));
-        bg_color.parse("#0066FF");
-        override_background_color (Gtk.StateFlags.NORMAL, bg_color);
         get_accessible ().set_name (_("Login Screen"));
         has_resize_grip = false;
 
         this.get_style_context().add_class("lightdm");
 
-        // UserStyleSheet global_styles = new WebKit.UserStyleSheet("", UserContentInjectedFrames.TOP_FRAME, UserStyleLevel.USER, null, null);
-
-        // UserContentManager content_manager = new WebKit.UserContentManager();
-        // content_manager.add_style_sheet(global_styles);
-
-        // web_view = new WebKit.WebView.with_user_content_manager(content_manager);
         web_view = new WebView();
-        // WebView();
 
         web_view.window_object_cleared.connect(addApp);
 
-        // var web_settings = new WebKit.Settings();
         WebSettings web_settings = web_view.get_settings();
 
         web_settings.enable_plugins = true;
@@ -126,7 +114,6 @@ public class MainWindow : Gtk.Window {
         } */
     }
 
-    
     // called by javascript
     public static JSCore.Value exit(JSCore.Context ctx,
                                 JSCore.Object function,
