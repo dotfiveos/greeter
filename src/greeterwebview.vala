@@ -101,7 +101,7 @@ public class GreeterWebView : WebKit.WebView {
         JSCore.ClassAttribute.None,
         "LightDM",
         null,
-        (StaticValue*) lightdm_values,
+        (JSCore.StaticValue*) lightdm_values,
         lightdm_functions
     };
 
