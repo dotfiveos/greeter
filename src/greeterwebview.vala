@@ -116,7 +116,7 @@ public class GreeterWebView : WebKit.WebView {
         debug("Creating js class from definition");
         JSCore.Class lightdm_class = new JSCore.Class(lightdm_definition);
         debug("Creating object from class");
-        JSCore.Object lightdm_object = new JSCore.Object(ctx, lightdm_class, null);
+        JSCore.Object lightdm_object = new JSCore.Object(ctx, lightdm_class, ctx);
         debug("Injecting object into context");
         global.set_property(
             ctx,
