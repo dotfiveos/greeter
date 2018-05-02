@@ -112,7 +112,7 @@ public class MainWindow : Gtk.Window {
     public static JS.Value getData(JS.Context ctx,
                                    JS.Object function,
                                    JS.Object thisObject,
-                                   JS.ConstValue[] arguments,
+                                   JS.Value[] arguments,
                                    out JS.Value exception) {
         exception = null;
 
@@ -127,7 +127,7 @@ public class MainWindow : Gtk.Window {
     public static JS.Value exit(JS.Context ctx,
                                 JS.Object function,
                                 JS.Object thisObject,
-                                JS.ConstValue[] arguments,
+                                JS.Value[] arguments,
                                 out JS.Value exception) {
         exception = null;
 
