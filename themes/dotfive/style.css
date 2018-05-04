@@ -69,6 +69,10 @@ body {
   align-items: center;
 }
 
+* {
+  font-family: sans-serif;
+}
+
 body .debug {
   position: absolute;
   bottom: 0;
